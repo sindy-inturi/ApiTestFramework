@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-01-29T21:19:27 IST" name="Default suite" finished-at="2021-01-29T21:19:39 IST" duration-ms="12069">
+    <groups>
+    </groups>
+    <test started-at="2021-01-29T21:19:27 IST" name="Default test" finished-at="2021-01-29T21:19:39 IST" duration-ms="12069">
+      <class name="Tests.FirstTest">
+        <test-method is-config="true" signature="ApiPreConditions()[pri:0, instance:Tests.FirstTest@20d28811]" started-at="2021-01-29T21:19:27 IST" name="ApiPreConditions" finished-at="2021-01-29T21:19:28 IST" duration-ms="1079" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ApiPreConditions -->
+        <test-method signature="ValidateEmailIdOnCommentsTest()[pri:0, instance:Tests.FirstTest@20d28811]" started-at="2021-01-29T21:19:28 IST" name="ValidateEmailIdOnCommentsTest" finished-at="2021-01-29T21:19:39 IST" duration-ms="10939" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateEmailIdOnCommentsTest -->
+      </class> <!-- Tests.FirstTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
