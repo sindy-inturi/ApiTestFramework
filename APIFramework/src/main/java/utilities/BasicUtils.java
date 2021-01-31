@@ -1,5 +1,8 @@
 package utilities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 public class BasicUtils {
@@ -20,6 +23,13 @@ public class BasicUtils {
         	}
         
 		return flag;
+	}
+	
+	
+	public static String GetDateAndTime()
+	{
+		DateFormat df = new SimpleDateFormat("yyyyMMddhhmmss");
+		return df.format(new Date());
 	}
 
 }

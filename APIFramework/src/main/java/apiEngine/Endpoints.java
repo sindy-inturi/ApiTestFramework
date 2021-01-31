@@ -6,6 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pojo.Comment;
+import pojo.Photo;
 import pojo.Post;
 import pojo.User;
 
@@ -60,4 +61,22 @@ public class Endpoints implements IEndpoints{
 		
 	}
 	
+	public Photo[] GetAllPhotos(String albumId) {
+		Response response= request.get("albums/"+albumId+"/photos");
+		return response.getBody().as(Photo[].class);
+	}
+	
+	public boolean IsPhotoCorrupt(String url)
+	
+	{
+		Response response= request.get(url);
+		return isSuccessful(response);
+		
+	}
+	
+	public boolean isSuccessful(Response response) {
+		int code = response.getStatusCode();
+		if( code == 200 || code == 201 || code == 202 || code == 203 || code == 204 || code == 205) return true;
+		return false;
+	}
 }

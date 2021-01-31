@@ -7,22 +7,24 @@ import org.testng.annotations.BeforeTest;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
+import Reporting.ExtentReport;
 import apiEngine.Endpoints;
+import utilities.BasicUtils;
 
 public class BaseTest {
 	protected Endpoints endPointObject;
-	static ExtentTest test;
 	static ExtentReports report;
+	static ExtentTest test;
 
 	public BaseTest() {
-		endPointObject = new Endpoints();
+		report = new ExtentReports(
+				System.getProperty("user.dir") + "\\ExtentReportResults_" + BasicUtils.GetDateAndTime() + ".html");
 	}
 
-	
 	protected static void startTest(String testClassName) {
-		report = new ExtentReports(System.getProperty("user.dir") + "\\ExtentReportResults.html");
-		System.out.println(System.getProperty("user.dir"));
+
 		test = report.startTest(testClassName);
+
 	}
 
 	@AfterClass
@@ -30,7 +32,5 @@ public class BaseTest {
 		report.endTest(test);
 		report.flush();
 	}
-
-
 
 }

@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-01-31T11:26:01 IST" name="Default suite" finished-at="2021-01-31T11:26:06 IST" duration-ms="5202">
+  <suite started-at="2021-01-31T15:19:39 IST" name="Default suite" finished-at="2021-01-31T15:21:08 IST" duration-ms="88722">
     <groups>
     </groups>
-    <test started-at="2021-01-31T11:26:01 IST" name="Default test" finished-at="2021-01-31T11:26:06 IST" duration-ms="5202">
+    <test started-at="2021-01-31T15:19:39 IST" name="Default test" finished-at="2021-01-31T15:21:08 IST" duration-ms="88722">
       <class name="Tests.FirstTest">
-        <test-method is-config="true" signature="ApiPreConditions()[pri:0, instance:Tests.FirstTest@3fffff43]" started-at="2021-01-31T11:26:01 IST" name="ApiPreConditions" finished-at="2021-01-31T11:26:01 IST" duration-ms="210" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:Tests.FirstTest@45c7e403]" started-at="2021-01-31T15:19:39 IST" name="beforeClass" finished-at="2021-01-31T15:19:40 IST" duration-ms="967" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ApiPreConditions -->
-        <test-method signature="ValidateEmailIdOnCommentsTest()[pri:0, instance:Tests.FirstTest@3fffff43]" started-at="2021-01-31T11:26:01 IST" name="ValidateEmailIdOnCommentsTest" finished-at="2021-01-31T11:26:06 IST" duration-ms="4722" status="PASS">
+        </test-method> <!-- beforeClass -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:Tests.FirstTest@45c7e403]" started-at="2021-01-31T15:19:40 IST" name="beforeMethod" finished-at="2021-01-31T15:19:40 IST" duration-ms="11" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void Tests.FirstTest.ValidateEmailIdOnCommentsTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="ValidateEmailIdOnCommentsTest()[pri:0, instance:Tests.FirstTest@45c7e403]" started-at="2021-01-31T15:19:40 IST" name="ValidateEmailIdOnCommentsTest" description="ValidateEmailIdOnCommentsTest" finished-at="2021-01-31T15:19:48 IST" duration-ms="7438" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidateEmailIdOnCommentsTest -->
-        <test-method is-config="true" signature="endTest()[pri:0, instance:Tests.FirstTest@3fffff43]" started-at="2021-01-31T11:26:06 IST" name="endTest" finished-at="2021-01-31T11:26:06 IST" duration-ms="226" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:Tests.FirstTest@45c7e403]" started-at="2021-01-31T15:19:48 IST" name="beforeMethod" finished-at="2021-01-31T15:19:48 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void Tests.FirstTest.ValidatePhotosAreNotCorrupted()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="ValidatePhotosAreNotCorrupted()[pri:0, instance:Tests.FirstTest@45c7e403]" started-at="2021-01-31T15:19:48 IST" name="ValidatePhotosAreNotCorrupted" description="ValidatePhotosAreNotCorrupted" finished-at="2021-01-31T15:21:08 IST" duration-ms="80038" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidatePhotosAreNotCorrupted -->
+        <test-method is-config="true" signature="endTest()[pri:0, instance:Tests.FirstTest@45c7e403]" started-at="2021-01-31T15:21:08 IST" name="endTest" finished-at="2021-01-31T15:21:08 IST" duration-ms="216" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->

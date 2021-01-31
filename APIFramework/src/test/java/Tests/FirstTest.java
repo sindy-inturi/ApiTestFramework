@@ -8,6 +8,7 @@ import org.testng.*;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterClass;
 import org.testng.asserts.SoftAssert;
 
@@ -16,6 +17,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pojo.Comment;
+import pojo.Photo;
 import pojo.Post;
 import pojo.User;
 import utilities.BasicUtils;
@@ -24,26 +26,30 @@ import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Enums.PostProperty;
 import Enums.UserProperty;
 import apiEngine.Endpoints;
-import groovyjarjarantlr.Utils;
+import java.lang.reflect.Method;
 
 public class FirstTest extends BaseTest {
+
 	
-	@BeforeTest
-	public void ApiPreConditions() {
+	@BeforeClass
+	public synchronized void beforeClass() {
 		endPointObject = new Endpoints();
-		BaseTest.startTest(getClass().getSimpleName());
+		
 	}
-
-	@Test
+	
+	@BeforeMethod
+	public synchronized void beforeMethod(Method method) {
+		BaseTest.startTest(method.getName());
+	}
+	
+	@Test(description = "ValidateEmailIdOnCommentsTest")
 	public void ValidateEmailIdOnCommentsTest() {
-
+		
 		SoftAssert softAssert = new SoftAssert();
 
 		try {
@@ -78,6 +84,32 @@ public class FirstTest extends BaseTest {
 			test.log(LogStatus.FAIL, "Exception has occured-->" + e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	@Test(description = "ValidatePhotosAreNotCorrupted")
+	public void ValidatePhotosAreNotCorrupted()
+	{
+		
+		SoftAssert softAssert = new SoftAssert();
+		Photo[] photos = endPointObject.GetAllPhotos("76");
+		
+		for(Photo p:photos)
+		{
+			String url=p.getUrl();
+			boolean result= endPointObject.IsPhotoCorrupt(url);
+			System.out.println(result+"--->"+url);
+
+			if (!result) {
+				
+				test.log(LogStatus.FAIL, "Photo is corrupt ");
+			} else {
+				test.log(LogStatus.PASS, "Valid photo");
+
+			}
+
+			softAssert.assertTrue(result, "The photo is corrupt");
+		}
+
 	}
 
 }
