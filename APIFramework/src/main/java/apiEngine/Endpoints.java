@@ -10,6 +10,8 @@ import pojo.Photo;
 import pojo.Post;
 import pojo.User;
 
+import org.apache.logging.log4j.*;
+
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.type.CollectionType;
@@ -22,6 +24,7 @@ public class Endpoints implements IEndpoints{
 
 	private final RequestSpecification request;
 	private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+	static final Logger logger = LogManager.getLogger(Endpoints.class);
 
 	public Endpoints() {
 		
@@ -36,7 +39,7 @@ public class Endpoints implements IEndpoints{
         Response response= request.queryParam(property.toString().toLowerCase(), value).get("/users");
  
         System.out.println(response.asString());
-       
+        logger.info(response.getStatusCode());
 		return response.getBody().as(User[].class);
        
 		
@@ -47,7 +50,7 @@ public class Endpoints implements IEndpoints{
 	
         Response response= request.queryParam(property.toString(), value).get("/posts");
         System.out.println(response.asString());
-        
+        logger.info(response.getStatusCode());
         return response.getBody().as(Post[].class);
         
 	}
@@ -56,13 +59,14 @@ public class Endpoints implements IEndpoints{
 	{
 		
 		Response response= request.get("/posts/"+postId+"/comments");
-		
+	    logger.info(response.getStatusCode());
 		return response.getBody().as(Comment[].class);
 		
 	}
 	
 	public Photo[] GetAllPhotos(String albumId) {
 		Response response= request.get("albums/"+albumId+"/photos");
+	    logger.info(response.getStatusCode());
 		return response.getBody().as(Photo[].class);
 	}
 	
@@ -70,6 +74,7 @@ public class Endpoints implements IEndpoints{
 	
 	{
 		Response response= request.get(url);
+	    logger.info(response.getStatusCode());
 		return isSuccessful(response);
 		
 	}
