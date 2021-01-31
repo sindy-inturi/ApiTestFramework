@@ -37,6 +37,7 @@ public class Endpoints implements IEndpoints{
         System.out.println(response.asString());
        
 		return response.getBody().as(User[].class);
+       
 		
 	}
 	

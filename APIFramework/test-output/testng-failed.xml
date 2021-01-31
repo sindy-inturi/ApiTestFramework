@@ -5,7 +5,10 @@
     <classes>
       <class name="Tests.FirstTest">
         <methods>
+          <include name="ApiPreConditions"/>
+          <include name="endTest"/>
           <include name="ValidateEmailIdOnCommentsTest"/>
+          <include name="startTest"/>
         </methods>
       </class> <!-- Tests.FirstTest -->
     </classes>
