@@ -23,7 +23,7 @@ import Enums.UserProperty;
 public class Endpoints implements IEndpoints{
 
 	private final RequestSpecification request;
-	private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+	
 	static final Logger logger = LogManager.getLogger(Endpoints.class);
 
 	public Endpoints() {

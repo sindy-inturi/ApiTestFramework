@@ -54,7 +54,7 @@ public class FirstTest extends BaseTest {
 
 		try {
 			User[] user = endPointObject.GetUser(UserProperty.USERNAME, "Delphine");
-			System.out.println("userName-->" + user[0].getUsername());
+			logger.info("userName-->" + user[0].getUsername());
 
 			Assert.assertTrue(user[0].getUsername().equals("Delphine"));
 
@@ -64,12 +64,12 @@ public class FirstTest extends BaseTest {
 
 				Comment[] comments = endPointObject.GetCommentsOnAPost(p.getId());
 				for (Comment c : comments) {
-					System.out.println(c.getEmail());
+					logger.info(c.getEmail());
 
 					boolean validationResult = BasicUtils.ValidateEmail(c.getEmail());
 
 					if (!validationResult) {
-						System.out.println(c.getEmail() + "--> This is incorrect format");
+						logger.info(c.getEmail() + "--> This is incorrect format");
 						test.log(LogStatus.FAIL, "Email format is invalid");
 					} else {
 						test.log(LogStatus.PASS, "Valid Email format");
@@ -97,7 +97,7 @@ public class FirstTest extends BaseTest {
 		{
 			String url=p.getUrl();
 			boolean result= endPointObject.IsPhotoCorrupt(url);
-			System.out.println(result+"--->"+url);
+			logger.info(result+"--->"+url);
 
 			if (!result) {
 				

@@ -1,5 +1,7 @@
 package Tests;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
@@ -15,22 +17,21 @@ public class BaseTest {
 	protected Endpoints endPointObject;
 	static ExtentReports report;
 	static ExtentTest test;
+	static final Logger logger = LogManager.getLogger(BaseTest.class);
 
 	public BaseTest() {
-		report = new ExtentReports(
-				System.getProperty("user.dir") + "\\ExtentReportResults_" + BasicUtils.GetDateAndTime() + ".html");
+		ExtentReport.GenerateReport();
 	}
 
 	protected static void startTest(String testClassName) {
 
-		test = report.startTest(testClassName);
+		test =ExtentReport.startTest(testClassName);
 
 	}
 
 	@AfterClass
-	public static void endTest() {
-		report.endTest(test);
-		report.flush();
+	public static void afterClass() {
+		ExtentReport.finishReport();
 	}
 
 }
