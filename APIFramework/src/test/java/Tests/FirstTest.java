@@ -80,7 +80,6 @@ public class FirstTest extends BaseTest {
 			}
 			softAssert.assertAll();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			test.log(LogStatus.FAIL, "Exception has occured-->" + e.getMessage());
 			e.printStackTrace();
 		}
@@ -91,23 +90,29 @@ public class FirstTest extends BaseTest {
 	{
 		
 		SoftAssert softAssert = new SoftAssert();
+		
 		Photo[] photos = endPointObject.GetAllPhotos("76");
 		
-		for(Photo p:photos)
-		{
-			String url=p.getUrl();
-			boolean result= endPointObject.IsPhotoCorrupt(url);
-			logger.info(result+"--->"+url);
+		try {
+			for(Photo p:photos)
+			{
+				String url=p.getUrl();
+				boolean result= endPointObject.IsPhotoCorrupt(url);
+				logger.info(result+"--->"+url);
 
-			if (!result) {
-				
-				test.log(LogStatus.FAIL, "Photo is corrupt ");
-			} else {
-				test.log(LogStatus.PASS, "Valid photo");
+				if (!result) {
+					
+					test.log(LogStatus.FAIL, "Photo is corrupt ");
+				} else {
+					test.log(LogStatus.PASS, "Valid photo");
 
+				}
+
+				softAssert.assertTrue(result, "The photo is corrupt");
 			}
-
-			softAssert.assertTrue(result, "The photo is corrupt");
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, "Exception has occured-->" + e.getMessage());
+			e.printStackTrace();
 		}
 
 	}
