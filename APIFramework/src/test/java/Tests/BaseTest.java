@@ -9,8 +9,8 @@ import org.testng.annotations.BeforeTest;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
-import Reporting.ExtentReport;
 import apiEngine.Endpoints;
+import reporting.ExtentReport;
 import utilities.BasicUtils;
 
 public class BaseTest {

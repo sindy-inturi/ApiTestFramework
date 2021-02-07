@@ -28,9 +28,10 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.relevantcodes.extentreports.LogStatus;
 
-import Enums.PostProperty;
-import Enums.UserProperty;
 import apiEngine.Endpoints;
+import enums.PostProperty;
+import enums.UserProperty;
+
 import java.lang.reflect.Method;
 
 public class FirstTest extends BaseTest {

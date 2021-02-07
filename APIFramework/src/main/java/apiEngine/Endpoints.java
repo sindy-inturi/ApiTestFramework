@@ -17,8 +17,8 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
-import Enums.PostProperty;
-import Enums.UserProperty;
+import enums.PostProperty;
+import enums.UserProperty;
 
 public class Endpoints implements IEndpoints{
 
